@@ -1,16 +1,36 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clock Timer</title>
+  <style>
+    body {
+      display: flex;
+      height: 100vh;
+      background: #white;
+      color: black;
+      font-family: "Poppins", sans-serif;
+      font-size: 1rem;
+    }
+  </style>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+  <p id="timer">Loading time...</p>
 
+  <script>
+    function updateTimer() {
+      const now = new Date();
+      const date = now.toLocaleDateString();  // e.g., 13/11/2025
+      const time = now.toLocaleTimeString();  // e.g., 2:15:23 PM
+      document.getElementById("timer").textContent = `${date},${time}`;
+    }
+
+    // Initial call to show time immediately
+    updateTimer();
+
+    // Update every second
+    setInterval(updateTimer, 1000);
+  </script>
 </body>
-
 </html>
